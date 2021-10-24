@@ -11,7 +11,89 @@
 
 ## My notes
 
-### The need for tests as documentation
+### Hardest part of software development
+
+During the past couple of decades software development was significantly improved.
+
+Software design become mature with discovery of design patterns and various
+other design principles. When applied properly we create software that is easy
+to enhance and maintain.
+
+Software tools and languages made software development easier and more efficient.
+
+Agile processes helped in managing software projects more effectively.
+
+However, one area is still waiting for major breakthrough, making sure we know what we need to build. Fred Brooks wrote long time ago "The hardest single part of building a software system is deciding precisely what to build".
+
+### Problems with imperative specifications
+
+Imperative specifications, which command what people should do without
+demonstrating it, are not good as they are abstract, seemingly precise but leave
+quite a lot of potential for mistakes.
+
+We each have our own assumptions that affect the way we understand these
+statements. The fact that we have heard, read and understood something in
+English does not necessarily mean that we understood it in the same way.
+
+Another issue is that classical project requirements focus on what but not on
+why. They are effectively a proposed solution to a problem, but do not tell us
+what the problem actually is.
+
+Both traditional and agile development processes expect clients and business
+experts to specify what the system should do and rely on them to get it right.
+They should definitely be in the driving seat of projects, but there is lots of evidence that better results can be achieved if developers and testers also have
+a say in what is to be built.
+
+[
+US Army Military experiment:
+
+The researchers attended a military exercise and listened in while the
+commanders were giving orders to their teams. During the exercise, they wrote
+down everything that the teams did. After the exercise, they discussed the
+actual actions of the teams with the commanders. The results of the research
+were that actions on the ground matched commanders’ expectations completely only
+in 34% of the cases.
+
+commanders = customers or BAs
+orders = specifications
+teams on ground = developers and testers
+]
+
+### The need for ATDD
+
+1
+
+Software is a remarkably sensitive discipline. If you reach into a base of code
+and you change one bit you can crash the software.  Go into the memory and
+twiddle one bit at random and very likely you will elicit some form of crash.
+Very, very few systems are that sensitive. You could go out to one of these
+bridges over here, start taking bolts out and they probably wouldn’t fall. I
+could pull out a gun and start shooting randomly and I probably wouldn’t kill
+too many people. I might wound a few but — you know — you get a bullet in the
+leg or a lung and you’d probably survive. People are resilient — they can
+survive the loss of a leg and so forth. Bridges are resilient — they survive the
+loss of components. But software isn’t resilient at all: one bit changes and —
+BANG! — it crashes. Very few disciplines are that sensitive.
+
+But there is one other discipline that is, and that’s Accounting. The right
+mistake at exactly the right time on the right spreadsheet — that one-digit
+error can crash the company and send the offenders off to jail. How do
+accountants deal with that sensitivity? Well, they have disciplines. And one of
+the primary disciplines is dual-entry bookkeeping. Everything is said twice.
+Every transaction is entered two times — once on the credit side and once on the
+debit side. Those two transactions follow separate mathematical pathways until
+they end up at this wonderful subtraction on the balance sheet that has to yield
+to zero.
+
+This is what test-driven development is: dual-entry bookkeeping. Everything is
+said twice — once on the test side and once on the production code side and
+everything runs in an execution that yields either a green bar or a red bar just
+like the zero on the balance sheet. It seems like that’s a good practice for us:
+to acknowledge and manage these sensitivities of our discipline.
+
+Robert C. Martin
+
+2
 
 Our job is to make sure the software we make is of good quality and our
 customers are going to be happy while using it. To to do that we need to create
@@ -44,6 +126,11 @@ This new version of the spec should be the tests itself. They should be written
 using more precise language, that can still be understood by all the
 participants in a software development project.
 
+### Spec gap
+
+The complete description of the system is contained not in a single place, but
+in the specification document, combined with some emails, with some change requests, and in worst case with some verbal communication.
+
 ### Myth: Use BDD only if non-technical people need to understand the tests
 
 Frequently I hear argument "We used BDD because we wanted to create tests that non-technical
@@ -53,68 +140,6 @@ it is good practise that leads to well defined and clear test cases. When we pra
 approach we create test cases that can be used as live documentation for the system. This
 documentation never gets obsolete and is always in sync with the source code.
 That by itself is enough reason to use and practice it :)
-
-## Bridging the Communication Gap
-
-L110
-I am getting more and more convinced every day that communication is, in fact,
-what makes or breaks software projects.
-
-L115
-Agile acceptance testing and specification by example essentially help us to
-close the communication gap between different participants in a software
-project (business people, software developers, testers), ensure that they speak
-the same language and build a truly shared and consistent understanding of the
-domain.
-
-L122
-These are the most important benefits for product owners, business analysts and
-project managers:
-
-* Developers will actually read the specifications that you write
-* You will be sure that developers and testers understand the specifications
-  correctly
-* You will be sure that they do not skip parts of the specifications
-* You can track development progress easily
-* You can easily identify conflicts in business rules and requirements caused by
-  later change requests
-* You’ll save time on acceptance and smoke testing
-
-From a developer’s perspective, these are the most important advantages of agile
-acceptance testing and specification by example:
-
-* Most functional gaps and inconsistencies in the requirements and
-  specifications will be flushed out before the development starts
-* You will be sure that business analysts actually understand special cases that
-  you want to discuss with them.
-* You will have automated tests as targets to help you focus the development
-* It will be easier to share, hand over and take over code
-
-From a tester’s perspective, these are the most important benefits of agile
-acceptance testing and specification by example:
-
-* You can influence the development process and stop developers from making the
-  same mistakes over and over
-* You will have a much better understanding of the domain
-* You’ll delegate a lot of dull work to developers, who will collaborate with
-  you on automating the verifications
-* You can build in quality from the start by raising concerns about possible
-  problems before the development starts
-* You’ll be able to verify business rules with a touch of a button
-* You will have a lot more time for exploratory testing
-* You will be able to build better relationships with developers and business
-  people and get their respect
-
-L191
-One of the main messages I want to convey with this book is that the biggest
-benefit of agile acceptance testing is improved communication and mutual
-understanding, not test automation. There is too much focus on tools today and
-in my opinion this is quite wrong.
-
-L258
-Telephone game
-
-
 
 ## References
 
@@ -128,3 +153,4 @@ Telephone game
 * [Specification by Example Explained by ShriKant Vashishtha](https://www.scrumday.in/wp-content/uploads/2017/09/specification-by-examples-writing-executable-specification.pdf)
 * [Wikipedia: Specification by Example](https://en.wikipedia.org/wiki/Specification_by_example)
 * [A simple, effective test automation strategy](https://medium.com/@abstarreveld/a-simple-effective-test-automation-strategy-aa5ed2c74ca4) - "ETAS2 - A simple, effective test automation strategy.pdf"
+* [TDD as double entry book keeping](http://blog.unhandled-exceptions.com/index.php/2009/02/15/uncle-bob-tdd-as-double-entry-bookkeeping/)
